@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing my journey as a **Python Backend Developer** with 5+ years of experience in backend systems, REST API design, and automation engineering.
 
-**Live Portfolio:** [sunny.dev](https://portfolio-gamma-six-44.vercel.app)
+**Live Portfolio:** [sunny.dev](https://sunny-python-dev.netlify.app)
 
 ---
 
