@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sunny Kumar Shah — Python Backend Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080C14;
+  --bg2:#0D1220;
+  --bg3:#111927;
+  --surface:#141E2E;
+  --surface2:#1A2540;
+  --green:#00FF88;
+  --green2:#00CC6A;
+  --green-dim:rgba(0,255,136,0.08);
+  --blue:#4D9FFF;
+  --blue-dim:rgba(77,159,255,0.1);
+  --text:#E8EDF5;
+  --muted:#8494A8;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(0,255,136,0.2);
+  --font-display:'Syne',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-display);
+  line-height:1.6;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* CURSOR */
+#cursor{position:fixed;width:12px;height:12px;background:var(--green);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .15s ease,background .2s;mix-blend-mode:difference}
+#cursor-ring{position:fixed;width:36px;height:36px;border:1px solid var(--green);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .3s ease;opacity:.5}
+body:hover #cursor{opacity:1}
+
+/* NOISE OVERLAY */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:1;opacity:.4;
+}
+
+/* SCROLL PROGRESS */
+#progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--green),var(--blue));z-index:200;transition:width .1s;width:0%}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 3rem;
+  background:rgba(8,12,20,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:all .3s;
+}
+.nav-logo{
+  font-family:var(--font-mono);
+  font-size:.9rem;
+  color:var(--green);
+  letter-spacing:.05em;
+}
+.nav-logo span{color:var(--muted)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  font-family:var(--font-mono);
+  font-size:.78rem;
+  color:var(--muted);
+  text-decoration:none;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{
+  font-family:var(--font-mono);
+  font-size:.78rem;
+  color:var(--green);
+  border:1px solid var(--border2);
+  padding:.4rem 1rem;
+  border-radius:4px;
+  text-decoration:none;
+  letter-spacing:.08em;
+  transition:all .2s;
+}
+.nav-cta:hover{background:var(--green-dim)}
+
+/* SECTIONS */
+section{position:relative;z-index:2;padding:6rem 0}
+.container{max-width:1140px;margin:0 auto;padding:0 2rem}
+
+/* HERO */
+#hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding-top:5rem;
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:center;
+}
+.hero-tag{
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  color:var(--green);
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  margin-bottom:1.5rem;
+  padding:.3rem .8rem;
+  border:1px solid var(--border2);
+  border-radius:2px;
+  background:var(--green-dim);
+}
+.hero-name{
+  font-size:clamp(3rem,6vw,5.5rem);
+  font-weight:800;
+  line-height:1.0;
+  margin-bottom:1rem;
+  letter-spacing:-.02em;
+}
+.hero-name .highlight{
+  color:transparent;
+  -webkit-text-stroke:1px var(--green);
+}
+.hero-role{
+  font-family:var(--font-mono);
+  font-size:1.1rem;
+  color:var(--muted);
+  margin-bottom:1.5rem;
+}
+.hero-role .typed{color:var(--green)}
+.hero-summary{
+  font-size:1rem;
+  color:var(--muted);
+  line-height:1.8;
+  max-width:500px;
+  margin-bottom:2.5rem;
+}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{
+  font-family:var(--font-mono);
+  font-size:.82rem;
+  background:var(--green);
+  color:#000;
+  padding:.7rem 1.6rem;
+  border-radius:4px;
+  text-decoration:none;
+  font-weight:700;
+  letter-spacing:.05em;
+  transition:all .2s;
+  border:none;cursor:pointer;
+}
+.btn-primary:hover{background:var(--green2);transform:translateY(-2px)}
+.btn-secondary{
+  font-family:var(--font-mono);
+  font-size:.82rem;
+  color:var(--text);
+  padding:.7rem 1.6rem;
+  border-radius:4px;
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:.05em;
+  border:1px solid var(--border);
+  transition:all .2s;
+}
+.btn-secondary:hover{border-color:var(--border2);color:var(--green);transform:translateY(-2px)}
+.hero-socials{
+  display:flex;gap:1.2rem;margin-top:2rem;
+}
+.hero-socials a{
+  font-family:var(--font-mono);
+  font-size:.75rem;
+  color:var(--muted);
+  text-decoration:none;
+  letter-spacing:.1em;
+  display:flex;align-items:center;gap:.4rem;
+  transition:color .2s;
+}
+.hero-socials a:hover{color:var(--green)}
+.hero-socials a::before{content:'→';font-size:.8rem;transition:transform .2s}
+.hero-socials a:hover::before{transform:translateX(3px)}
+
+/* TERMINAL CARD */
+.terminal{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  font-family:var(--font-mono);
+}
+.terminal-bar{
+  background:var(--surface2);
+  padding:.7rem 1rem;
+  display:flex;align-items:center;gap:.5rem;
+  border-bottom:1px solid var(--border);
+}
+.dot{width:10px;height:10px;border-radius:50%}
+.dot.r{background:#FF5F57}
+.dot.y{background:#FFBD2E}
+.dot.g{background:#28CA41}
+.terminal-title{font-size:.72rem;color:var(--muted);margin-left:.5rem;letter-spacing:.05em}
+.terminal-body{padding:1.5rem;font-size:.82rem;line-height:2}
+.t-comment{color:#4A6080}
+.t-key{color:var(--blue)}
+.t-val{color:var(--green)}
+.t-str{color:#FFB86C}
+.t-num{color:#BD93F9}
+.t-cursor{display:inline-block;width:8px;height:1em;background:var(--green);vertical-align:middle;animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* STATS ROW */
+.stats-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:8px;
+  overflow:hidden;
+  margin-top:4rem;
+}
+.stat-item{
+  background:var(--bg);
+  padding:1.5rem 2rem;
+  text-align:center;
+}
+.stat-num{
+  font-family:var(--font-mono);
+  font-size:2.2rem;
+  font-weight:700;
+  color:var(--green);
+  line-height:1;
+  margin-bottom:.3rem;
+}
+.stat-label{
+  font-size:.8rem;
+  color:var(--muted);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* SECTION HEADERS */
+.section-header{margin-bottom:3.5rem}
+.section-tag{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  color:var(--green);
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  margin-bottom:.6rem;
+}
+.section-title{
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:800;
+  letter-spacing:-.02em;
+  line-height:1.1;
+}
+.section-title em{color:var(--green);font-style:normal}
+
+/* ABOUT */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:5rem;
+  align-items:start;
+}
+.about-text p{color:var(--muted);line-height:1.9;margin-bottom:1.2rem;font-size:.97rem}
+.about-text p strong{color:var(--text)}
+.cert-list{margin-top:2rem}
+.cert-item{
+  display:flex;align-items:center;gap:.8rem;
+  padding:.7rem 0;
+  border-bottom:1px solid var(--border);
+  font-family:var(--font-mono);
+  font-size:.8rem;
+  color:var(--muted);
+}
+.cert-item::before{content:'✦';color:var(--green);font-size:.7rem;flex-shrink:0}
+
+/* SKILLS */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1rem;
+}
+.skill-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:1.4rem 1.5rem;
+  transition:all .3s;
+}
+.skill-card:hover{
+  border-color:var(--border2);
+  background:var(--surface2);
+  transform:translateY(-3px);
+}
+.skill-card-title{
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  color:var(--green);
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  margin-bottom:.8rem;
+}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.skill-tag{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  color:var(--text);
+  background:rgba(255,255,255,0.05);
+  border:1px solid var(--border);
+  border-radius:3px;
+  padding:.2rem .6rem;
+  transition:all .2s;
+}
+.skill-tag.primary{
+  color:var(--green);
+  background:var(--green-dim);
+  border-color:var(--border2);
+}
+
+/* EXPERIENCE */
+.exp-timeline{position:relative;padding-left:2rem}
+.exp-timeline::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;
+  width:1px;background:var(--border);
+}
+.exp-item{
+  position:relative;
+  margin-bottom:3rem;
+  padding-left:2rem;
+}
+.exp-item::before{
+  content:'';position:absolute;left:-2rem;top:.5rem;
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--border2);
+  transition:box-shadow .3s;
+}
+.exp-item:hover::before{
+  box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--green);
+}
+.exp-meta{
+  display:flex;align-items:center;gap:1rem;
+  flex-wrap:wrap;margin-bottom:.5rem;
+}
+.exp-date{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  color:var(--green);
+  letter-spacing:.1em;
+}
+.exp-badge{
+  font-family:var(--font-mono);
+  font-size:.65rem;
+  background:var(--blue-dim);
+  color:var(--blue);
+  padding:.2rem .6rem;
+  border-radius:3px;
+  border:1px solid rgba(77,159,255,0.2);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.exp-title{
+  font-size:1.3rem;
+  font-weight:700;
+  margin-bottom:.2rem;
+}
+.exp-company{
+  font-family:var(--font-mono);
+  font-size:.85rem;
+  color:var(--muted);
+  margin-bottom:.3rem;
+}
+.exp-stack{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  color:var(--muted);
+  margin-bottom:1rem;
+}
+.exp-stack span{color:var(--green)}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.exp-bullets li{
+  font-size:.9rem;
+  color:var(--muted);
+  padding-left:1.2rem;
+  position:relative;
+  line-height:1.7;
+}
+.exp-bullets li::before{
+  content:'▸';
+  position:absolute;left:0;
+  color:var(--green);
+  font-size:.75rem;
+  top:.05rem;
+}
+.exp-bullets li strong{color:var(--text)}
+
+/* PROJECTS */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:1.2rem;
+}
+.project-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:1.8rem;
+  transition:all .35s;
+  position:relative;
+  overflow:hidden;
+}
+.project-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--green),var(--blue));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .35s;
+}
+.project-card:hover{
+  border-color:var(--border2);
+  transform:translateY(-4px);
+}
+.project-card:hover::before{transform:scaleX(1)}
+.project-icon{
+  width:42px;height:42px;
+  background:var(--green-dim);
+  border:1px solid var(--border2);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;
+  margin-bottom:1rem;
+}
+.project-title{
+  font-size:1.1rem;
+  font-weight:700;
+  margin-bottom:.5rem;
+}
+.project-desc{
+  font-size:.87rem;
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:1.2rem;
+}
+.project-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
+.project-tag{
+  font-family:var(--font-mono);
+  font-size:.68rem;
+  color:var(--muted);
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);
+  border-radius:3px;
+  padding:.15rem .5rem;
+}
+.project-link{
+  font-family:var(--font-mono);
+  font-size:.75rem;
+  color:var(--green);
+  text-decoration:none;
+  letter-spacing:.08em;
+  transition:gap .2s;
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.project-link:hover{gap:.7rem}
+
+/* CONTACT */
+#contact{background:var(--bg2)}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5rem;
+  align-items:start;
+}
+.contact-text p{color:var(--muted);line-height:1.9;margin-bottom:1.5rem}
+.contact-links{display:flex;flex-direction:column;gap:.8rem}
+.contact-link{
+  display:flex;align-items:center;gap:1rem;
+  padding:.8rem 1rem;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:6px;
+  text-decoration:none;
+  transition:all .2s;
+}
+.contact-link:hover{border-color:var(--border2);background:var(--surface2)}
+.contact-link-icon{
+  width:32px;height:32px;
+  background:var(--green-dim);
+  border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;
+  flex-shrink:0;
+}
+.contact-link-text{flex:1}
+.contact-link-label{
+  font-family:var(--font-mono);
+  font-size:.65rem;
+  color:var(--muted);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.contact-link-val{
+  font-size:.88rem;
+  color:var(--text);
+}
+
+/* FORM */
+.contact-form{display:flex;flex-direction:column;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-label{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  color:var(--muted);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.form-input,.form-textarea{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:.75rem 1rem;
+  color:var(--text);
+  font-family:var(--font-mono);
+  font-size:.85rem;
+  outline:none;
+  transition:border-color .2s;
+  resize:none;
+  -webkit-appearance:none;
+}
+.form-input:focus,.form-textarea:focus{border-color:var(--border2)}
+.form-textarea{min-height:120px}
+.form-submit{
+  background:var(--green);
+  color:#000;
+  border:none;
+  padding:.8rem;
+  border-radius:6px;
+  font-family:var(--font-mono);
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  cursor:pointer;
+  transition:all .2s;
+}
+.form-submit:hover{background:var(--green2);transform:translateY(-2px)}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:2rem 0;
+  text-align:center;
+}
+.footer-text{
+  font-family:var(--font-mono);
+  font-size:.75rem;
+  color:var(--muted);
+  letter-spacing:.08em;
+}
+.footer-text span{color:var(--green)}
+
+/* ANIMATIONS */
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/* GRID BG */
+.grid-bg{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+    linear-gradient(90deg,rgba(0,255,136,0.03) 1px, transparent 1px);
+  background-size:50px 50px;
+  pointer-events:none;
+  z-index:0;
+}
+.hero-glow{
+  position:absolute;
+  top:-20%;right:-10%;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(0,255,136,0.05) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  nav{padding:1rem 1.2rem}
+  .nav-links{display:none}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  section{padding:4rem 0}
+  .stats-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="progress"></div>
+
+<nav>
+  <div class="nav-logo"><span>// </span>sunny.dev</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:shahs6450@gmail.com" class="nav-cta">Let's Talk →</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag reveal">Available for opportunities</div>
+        <h1 class="hero-name reveal reveal-delay-1">
+          Sunny<br/>Kumar<br/><span class="highlight">Shah.</span>
+        </h1>
+        <p class="hero-role reveal reveal-delay-2">
+          <span class="typed" id="typed-text">Python Backend Developer</span><span class="t-cursor"></span>
+        </p>
+        <p class="hero-summary reveal reveal-delay-3">
+          5+ years building RESTful APIs, automation systems, and backend services using Python, Flask, and Django — mostly in the finance domain.
+        </p>
+        <div class="hero-btns reveal reveal-delay-4">
+          <a href="#experience" class="btn-primary">View My Work</a>
+          <a href="#contact" class="btn-secondary">Get In Touch</a>
+        </div>
+        <div class="hero-socials reveal reveal-delay-4">
+          <a href="https://www.linkedin.com/in/sunny-shahs/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/sunnyshah7" target="_blank">GitHub</a>
+          <a href="https://leetcode.com/u/Imsunnyshah007/" target="_blank">leetcode</a>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+            <span class="terminal-title">sunny@backend:~$</span>
+          </div>
+          <div class="terminal-body">
+            <div class="t-comment"># developer.py</div>
+            <br/>
+            <span class="t-key">class</span> <span class="t-val">SunnyKumarShah</span>:<br/>
+            &nbsp;&nbsp;<span class="t-key">def</span> <span class="t-val">__init__</span>(self):<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;self.<span class="t-key">role</span> = <span class="t-str">"Python Backend Dev"</span><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;self.<span class="t-key">experience</span> = <span class="t-num">5</span><span class="t-comment"> # years</span><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;self.<span class="t-key">location</span> = <span class="t-str">"Bangalore 🇮🇳"</span><br/>
+            <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;self.<span class="t-key">stack</span> = [<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Python"</span>, <span class="t-str">"Flask"</span>,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Django"</span>, <span class="t-str">"REST APIs"</span>,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"PostgreSQL"</span>, <span class="t-str">"MySQL"</span><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;]<br/>
+            <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;self.<span class="t-key">open_to_work</span> = <span class="t-val">True</span> <span class="t-cursor"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-row reveal">
+      <div class="stat-item">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Automation Systems Built</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1.2K+</div>
+        <div class="stat-label">Incidents Resolved / Month</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-header reveal">
+          <div class="section-tag">// 01. about</div>
+          <h2 class="section-title">The person<br/>behind the <em>code.</em></h2>
+        </div>
+        <div class="about-text reveal reveal-delay-1">
+          <p>I'm a <strong>Python Backend Developer</strong> with 5+ years of experience building APIs, automation services, and backend systems — primarily in the <strong>finance domain</strong> at Accenture and now Infosys.</p>
+          <p>My core strength is turning complex, repetitive operational workflows into clean, reliable backend solutions. I've built REST APIs using Flask and Django that handle real production load — resolving <strong>1,200+ incidents per month</strong> and cutting manual effort by <strong>80%</strong> across teams.</p>
+          <p>I believe great backend code is invisible — it just works, scales quietly, and never surprises you at 2am. I'm looking for a Python backend role where I can do exactly that, but on a product I can be proud of.</p>
+        </div>
+        <div class="cert-list reveal reveal-delay-2">
+          <div class="cert-item">Microsoft Certified: Azure Fundamentals (AZ-900)</div>
+          <div class="cert-item">Microsoft Certified: Azure AI Fundamentals (AI-900)</div>
+          <div class="cert-item">Oracle Database 21c: New Features for Administrators</div>
+          <div class="cert-item">B.Tech in Computer Science — Arya Institute of Engineering, Jaipur</div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+            <span class="terminal-title">whoami.json</span>
+          </div>
+          <div class="terminal-body">
+<span class="t-comment">{</span><br/>
+&nbsp;&nbsp;<span class="t-key">"name"</span>: <span class="t-str">"Sunny Kumar Shah"</span>,<br/>
+&nbsp;&nbsp;<span class="t-key">"title"</span>: <span class="t-str">"Python Backend Dev"</span>,<br/>
+&nbsp;&nbsp;<span class="t-key">"based_in"</span>: <span class="t-str">"Bangalore, India"</span>,<br/>
+&nbsp;&nbsp;<span class="t-key">"experience_yrs"</span>: <span class="t-num">5</span>,<br/>
+&nbsp;&nbsp;<span class="t-key">"domain"</span>: <span class="t-str">"Finance &amp; Enterprise"</span>,<br/>
+&nbsp;&nbsp;<span class="t-key">"specialties"</span>: [<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"REST API Design"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Backend Automation"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Flask / Django"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"System Integration"</span><br/>
+&nbsp;&nbsp;],<br/>
+&nbsp;&nbsp;<span class="t-key">"currently"</span>: <span class="t-str">"@Infosys"</span>,<br/>
+&nbsp;&nbsp;<span class="t-key">"looking_for"</span>: <span class="t-str">"Backend Python role"</span>,<br/>
+&nbsp;&nbsp;<span class="t-key">"available"</span>: <span class="t-val">true</span><br/>
+<span class="t-comment">}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;max-width:600px;margin:0 auto 3.5rem">
+      <div class="section-tag">// 02. skills</div>
+      <h2 class="section-title">My technical <em>arsenal.</em></h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-card-title">Core Language</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Python 3</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="skill-card-title">Frameworks</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Flask</span>
+          <span class="skill-tag primary">Django</span>
+          <span class="skill-tag">Bootstrap</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <div class="skill-card-title">API Development</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">REST API Design</span>
+          <span class="skill-tag">Postman</span>
+          <span class="skill-tag">Swagger / OpenAPI</span>
+          <span class="skill-tag">OAuth2</span>
+          <span class="skill-tag">JSON</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-title">Databases</div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">PostgreSQL</span>
+          <span class="skill-tag primary">MySQL</span>
+          <span class="skill-tag">Django ORM</span>
+          <span class="skill-tag">Raw SQL</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="skill-card-title">Backend Concepts</div>
+        <div class="skill-tags">
+          <span class="skill-tag">MVC / MVT</span>
+          <span class="skill-tag">Middleware</span>
+          <span class="skill-tag">Background Jobs</span>
+          <span class="skill-tag">Authentication</span>
+          <span class="skill-tag">API Integration</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <div class="skill-card-title">Tools & DevOps</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitLab</span>
+          <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">Docker (basic)</span>
+          <span class="skill-tag">Azure</span>
+          <span class="skill-tag">ServiceNow</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-title">Libraries</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Pandas</span>
+          <span class="skill-tag">Requests</span>
+          <span class="skill-tag">pyttsx3</span>
+          <span class="skill-tag">SpeechRecognition</span>
+        </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="skill-card-title">Practices</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Agile / Scrum</span>
+          <span class="skill-tag">Sprint Planning</span>
+          <span class="skill-tag">DSA</span>
+          <span class="skill-tag">DBMS</span>
+          <span class="skill-tag">Documentation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-header reveal" style="margin-bottom:3rem">
+      <div class="section-tag">// 03. experience</div>
+      <h2 class="section-title">Where I've <em>shipped.</em></h2>
+    </div>
+    <div class="exp-timeline">
+
+      <div class="exp-item reveal">
+        <div class="exp-meta">
+          <span class="exp-date">Dec 2025 — Present</span>
+          <span class="exp-badge">Current</span>
+        </div>
+        <div class="exp-title">Python Backend Developer</div>
+        <div class="exp-company">Infosys India Pvt Ltd · Bangalore</div>
+        <div class="exp-stack">Stack: <span>Python · Flask · REST APIs · Postman</span></div>
+        <ul class="exp-bullets">
+          <li>Developing and maintaining <strong>Python-based backend services</strong> and REST APIs powering enterprise-scale monitoring and alerting platforms.</li>
+          <li>Designing API contracts, handling request/response lifecycles, and ensuring <strong>robust error handling</strong> and input validation across endpoints.</li>
+          <li>Writing reusable Python modules and automation scripts to streamline operational workflows and reduce manual intervention.</li>
+          <li>Testing and validating API behaviour using Postman — covering functional, regression, and edge-case scenarios.</li>
+          <li>Collaborating in Agile sprints to ship iterative backend improvements with cross-functional teams.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item reveal reveal-delay-1">
+        <div class="exp-meta">
+          <span class="exp-date">Oct 2021 — Dec 2025</span>
+          <span class="exp-badge">4.2 Years</span>
+        </div>
+        <div class="exp-title">Python Backend Developer</div>
+        <div class="exp-company">Accenture India Pvt Ltd · Bangalore</div>
+        <div class="exp-stack">Stack: <span>Python · Flask · Django · REST APIs · MySQL · Postman</span></div>
+        <ul class="exp-bullets">
+          <li>Designed and built <strong>10+ production REST APIs</strong> using Flask and Django that collectively resolved <strong>1,200+ incidents per month</strong> and improved SLA adherence significantly.</li>
+          <li>Engineered backend automation pipelines in Python that <strong>cut manual operational effort by 80%</strong>, freeing teams from repetitive data processing.</li>
+          <li>Built a <strong>ServiceNow data extraction service</strong> using Python + REST APIs, automating monthly reporting cycles with reliable scheduling and structured output.</li>
+          <li>Developed backend integrations with email notification services to push <strong>real-time alerts</strong> and incident updates to stakeholders.</li>
+          <li>Implemented backend data models, wrote <strong>optimised SQL queries</strong>, and managed schema changes in MySQL.</li>
+          <li>Led migration of legacy automation workflows with a <strong>zero-downtime cutover strategy</strong> and full audit compliance.</li>
+          <li>Owned end-to-end <strong>API testing with Postman</strong>: authored test collections, validated schemas, and documented endpoints.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;max-width:600px;margin:0 auto 3.5rem">
+      <div class="section-tag">// 04. projects</div>
+      <h2 class="section-title">Things I've <em>built.</em></h2>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-icon">🗂️</div>
+        <div class="project-title">Employee Management System</div>
+        <p class="project-desc">A full-stack CRUD web application built with Django + PostgreSQL. Features a responsive UI with Bootstrap data tables, Django ORM-powered data layer, and secure deployment on Render with CI/CD pipeline.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Django</span>
+          <span class="project-tag">PostgreSQL</span>
+          <span class="project-tag">Bootstrap</span>
+          <span class="project-tag">Render</span>
+          <span class="project-tag">CI/CD</span>
+        </div>
+        <a href="#" class="https://github.com/sunnyshah7/Employee_management_system">View Project →</a>
+      </div>
+
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-icon">🎙️</div>
+        <div class="project-title">Desktop Voice Assistant</div>
+        <p class="project-desc">A Python voice assistant that automates office tasks — email dispatch, Google Calendar event creation, and app launching. Integrated Google APIs via OAuth 2.0 with secure dotenv credential management.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">SpeechRecognition</span>
+          <span class="project-tag">Google Calendar API</span>
+          <span class="project-tag">Gmail API</span>
+          <span class="project-tag">OAuth2</span>
+          <span class="project-tag">pyttsx3</span>
+        </div>
+        <a href="#" class="https://github.com/sunnyshah7/Desktop-Voice-Assistant">View Project →</a>
+      </div>
+
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-icon">⚙️</div>
+        <div class="project-title">Automation API Suite</div>
+        <p class="project-desc">10+ Flask/Django REST APIs built at Accenture to automate incident management workflows in the finance domain — handling 1,200+ incidents/month and eliminating 80% manual effort via smart automation pipelines.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Flask</span>
+          <span class="project-tag">Django</span>
+          <span class="project-tag">REST API</span>
+          <span class="project-tag">MySQL</span>
+          <span class="project-tag">ServiceNow</span>
+        </div>
+        <a href="#" class="project-link">Details in Resume →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;max-width:600px;margin:0 auto 3.5rem">
+      <div class="section-tag">// 05. contact</div>
+      <h2 class="section-title">Let's <em>connect.</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-text reveal">
+        <p>I'm actively looking for Python backend roles. If you're building something interesting and need someone who can design clean APIs and ship reliable backend systems — let's talk.</p>
+        <p>Response time: usually within 24 hours.</p>
+        <div class="contact-links">
+          <a href="mailto:shahs6450@gmail.com" class="contact-link">
+            <div class="contact-link-icon">✉️</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-val">shahs6450@gmail.com</div>
+            </div>
+          </a>
+          <a href="tel:+918002214611" class="contact-link">
+            <div class="contact-link-icon">📱</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">Phone</div>
+              <div class="contact-link-val">+91 8002214611</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/sunny-shahs" target="_blank" class="contact-link">
+            <div class="contact-link-icon">💼</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-val">Connect with me</div>
+            </div>
+          </a>
+          <a href="https://github.com/sunnyshah7" target="_blank" class="contact-link">
+            <div class="contact-link-icon">🐙</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">GitHub</div>
+              <div class="contact-link-val">See my code</div>
+            </div>
+          </a>
+          <a href="https://docs.google.com/document/d/1xxQi3uxpi43vKlbjrAZmdBRZ3rCG3EnK/edit?usp=share_link&ouid=113682411564736556502&rtpof=true&sd=true" target="_blank" class="contact-link">
+            <div class="contact-link-icon">📑</div>
+            <div class="contact-link-text">
+              <div class="contact-link-label">Resume</div>
+              <div class="contact-link-val">Download my resume</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <form class="contact-form" action="https://formsubmit.co/shahs6450@gmail.com" method="POST">
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input type="text" name="name" class="form-input" placeholder="Your name" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-input" placeholder="your@email.com" required/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea name="message" class="form-textarea" placeholder="Tell me about the role or opportunity..." required></textarea>
+          </div>
+          <input type="hidden" name="_next" value="file:///Users/sunnyshah/Downloads/Portfolio/index.html">
+          <button type="submit" class="form-submit">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p class="footer-text">
+      Designed & built by <span>Sunny Kumar Shah</span> · Python Backend Developer · Bangalore, India
+    </p>
+  </div>
+</footer>
+
+<script>
+// CURSOR
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+});
+function animRing(){
+  rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+document.querySelectorAll('a,button,.skill-card,.project-card,.exp-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.transform='translate(-50%,-50%) scale(2.5)';ring.style.opacity='0';});
+  el.addEventListener('mouseleave',()=>{cursor.style.transform='translate(-50%,-50%) scale(1)';ring.style.opacity='.5';});
+});
+
+// SCROLL PROGRESS
+window.addEventListener('scroll',()=>{
+  const pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  document.getElementById('progress').style.width=pct+'%';
+});
+
+// REVEAL ON SCROLL
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:0.1});
+reveals.forEach(r=>obs.observe(r));
+
+// TYPED EFFECT
+const roles=["Python Backend Developer","Flask & Django Engineer","REST API Designer","Backend Automation Expert"];
+let ri=0,ci=0,del=false;
+const el=document.getElementById('typed-text');
+function type(){
+  const word=roles[ri];
+  if(!del){
+    el.textContent=word.slice(0,++ci);
+    if(ci===word.length){del=true;setTimeout(type,2000);return;}
+  }else{
+    el.textContent=word.slice(0,--ci);
+    if(ci===0){del=false;ri=(ri+1)%roles.length;}
+  }
+  setTimeout(type,del?60:90);
+}
+setTimeout(type,1000);
+
+
+// NAV ACTIVE
+window.addEventListener('scroll',()=>{
+  const sections=['hero','about','skills','experience','projects','contact'];
+  const links=document.querySelectorAll('.nav-links a');
+  let current='';
+  sections.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&window.scrollY>=el.offsetTop-100)current=id;
+  });
+  links.forEach(l=>{
+    l.style.color=l.getAttribute('href')==='#'+current?'var(--green)':'var(--muted)';
+  });
+});
+</script>
+</body>
+</html>
