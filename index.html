@@ -476,6 +476,8 @@ section{position:relative;z-index:2;padding:6rem 0}
   display:inline-flex;align-items:center;gap:.4rem;
 }
 .project-link:hover{gap:.7rem}
+.project-links{display:flex;gap:1.4rem;flex-wrap:wrap}
+.project-link.secondary{color:var(--blue)}
 
 /* CONTACT */
 #contact{background:var(--bg2)}
@@ -646,7 +648,7 @@ footer{
           <span class="typed" id="typed-text">Python Backend Developer</span><span class="t-cursor"></span>
         </p>
         <p class="hero-summary reveal reveal-delay-3">
-          5+ years building RESTful APIs, automation systems, and backend services using Python, Flask, and Django — mostly in the finance domain.
+          5+ years designing and scaling REST APIs, backend automation, and infrastructure tooling across finance and networking domains. Led a production NGINX → Envoy load balancer migration supporting 3M+ requests, with a strong DSA foundation and a production-first mindset.
         </p>
         <div class="hero-btns reveal reveal-delay-4">
           <a href="#experience" class="btn-primary">View My Work</a>
@@ -676,7 +678,7 @@ footer{
             <br/>
             &nbsp;&nbsp;&nbsp;&nbsp;self.<span class="t-key">stack</span> = [<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Python"</span>, <span class="t-str">"Flask"</span>,<br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Django"</span>, <span class="t-str">"REST APIs"</span>,<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"FastAPI"</span>, <span class="t-str">"REST APIs"</span>,<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"PostgreSQL"</span>, <span class="t-str">"MySQL"</span><br/>
             &nbsp;&nbsp;&nbsp;&nbsp;]<br/>
             <br/>
@@ -692,12 +694,12 @@ footer{
         <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">10+</div>
-        <div class="stat-label">Automation Systems Built</div>
+        <div class="stat-num">3M+</div>
+        <div class="stat-label">Requests Migrated, Zero Downtime</div>
       </div>
       <div class="stat-item">
-        <div class="stat-num">1.2K+</div>
-        <div class="stat-label">Incidents Resolved / Month</div>
+        <div class="stat-num">80%</div>
+        <div class="stat-label">Manual Effort Reduced</div>
       </div>
     </div>
   </div>
@@ -713,14 +715,14 @@ footer{
           <h2 class="section-title">The person<br/>behind the <em>code.</em></h2>
         </div>
         <div class="about-text reveal reveal-delay-1">
-          <p>I'm a <strong>Python Backend Developer</strong> with 5+ years of experience building APIs, automation services, and backend systems — primarily in the <strong>finance domain</strong> at Accenture and now Infosys.</p>
-          <p>My core strength is turning complex, repetitive operational workflows into clean, reliable backend solutions. I've built REST APIs using Flask and Django that handle real production load — resolving <strong>1,200+ incidents per month</strong> and cutting manual effort by <strong>80%</strong> across teams.</p>
-          <p>I believe great backend code is invisible — it just works, scales quietly, and never surprises you at 2am. I'm looking for a Python backend role where I can do exactly that, but on a product I can be proud of.</p>
+          <p>I'm a <strong>Python Backend Developer</strong> with 5+ years of experience designing and scaling REST APIs, backend automation, and infrastructure tooling — across the <strong>finance and networking domains</strong> at Accenture and now Infosys.</p>
+          <p>I led a production <strong>NGINX-to-Envoy load balancer migration</strong> supporting 3M+ requests with zero downtime, built Python automation that <strong>cut manual effort by 80%</strong>, and reduced mean-time-to-detect (MTTD) by <strong>~40%</strong> through real-time monitoring tooling. I've also mentored junior developers in Python best practices and test-driven development.</p>
+          <p>I believe great backend code is invisible — it just works, scales quietly, and never surprises you at 2am. Grounded in a strong DSA foundation and a production-first mindset, I'm looking for a Python backend role where I can keep building systems I'm proud of.</p>
         </div>
         <div class="cert-list reveal reveal-delay-2">
-          <div class="cert-item">Microsoft Certified: Azure Fundamentals (AZ-900)</div>
-          <div class="cert-item">Microsoft Certified: Azure AI Fundamentals (AI-900)</div>
-          <div class="cert-item">Oracle Database 21c: New Features for Administrators</div>
+          <div class="cert-item">Microsoft Certified: Azure Fundamentals</div>
+          <div class="cert-item">Microsoft Certified: AI Fundamentals</div>
+          <div class="cert-item">Claude Certified developer - foundations</div> </div>
           <div class="cert-item">B.Tech in Computer Science — Arya Institute of Engineering, Jaipur</div>
         </div>
       </div>
@@ -737,12 +739,12 @@ footer{
 &nbsp;&nbsp;<span class="t-key">"title"</span>: <span class="t-str">"Python Backend Dev"</span>,<br/>
 &nbsp;&nbsp;<span class="t-key">"based_in"</span>: <span class="t-str">"Bangalore, India"</span>,<br/>
 &nbsp;&nbsp;<span class="t-key">"experience_yrs"</span>: <span class="t-num">5</span>,<br/>
-&nbsp;&nbsp;<span class="t-key">"domain"</span>: <span class="t-str">"Finance &amp; Enterprise"</span>,<br/>
+&nbsp;&nbsp;<span class="t-key">"domain"</span>: <span class="t-str">"Finance &amp; Networking"</span>,<br/>
 &nbsp;&nbsp;<span class="t-key">"specialties"</span>: [<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"REST API Design"</span>,<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Backend Automation"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Flask / Django"</span>,<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"System Integration"</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Flask / FastAPI"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Infra Migrations"</span><br/>
 &nbsp;&nbsp;],<br/>
 &nbsp;&nbsp;<span class="t-key">"currently"</span>: <span class="t-str">"@Infosys"</span>,<br/>
 &nbsp;&nbsp;<span class="t-key">"looking_for"</span>: <span class="t-str">"Backend Python role"</span>,<br/>
@@ -766,17 +768,18 @@ footer{
       <div class="skill-card reveal">
         <div class="skill-card-title">Core Language</div>
         <div class="skill-tags">
-          <span class="skill-tag primary">Python 3</span>
+          <span class="skill-tag primary">Python</span>
           <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">HTML</span>
-          <span class="skill-tag">CSS</span>
         </div>
       </div>
       <div class="skill-card reveal reveal-delay-1">
-        <div class="skill-card-title">Frameworks</div>
+        <div class="skill-card-title">Frameworks & Libraries</div>
         <div class="skill-tags">
           <span class="skill-tag primary">Flask</span>
-          <span class="skill-tag primary">Django</span>
+          <span class="skill-tag primary">FastAPI</span>
+          <span class="skill-tag">Pydantic</span>
+          <span class="skill-tag">Requests</span>
+          <span class="skill-tag">pandas</span>
           <span class="skill-tag">Bootstrap</span>
         </div>
       </div>
@@ -785,8 +788,8 @@ footer{
         <div class="skill-tags">
           <span class="skill-tag primary">REST API Design</span>
           <span class="skill-tag">Postman</span>
-          <span class="skill-tag">Swagger / OpenAPI</span>
-          <span class="skill-tag">OAuth2</span>
+          <span class="skill-tag">OAuth 2.0</span>
+          <span class="skill-tag">JWT</span>
           <span class="skill-tag">JSON</span>
         </div>
       </div>
@@ -795,18 +798,15 @@ footer{
         <div class="skill-tags">
           <span class="skill-tag primary">PostgreSQL</span>
           <span class="skill-tag primary">MySQL</span>
-          <span class="skill-tag">Django ORM</span>
-          <span class="skill-tag">Raw SQL</span>
+          <span class="skill-tag">Redis</span>
         </div>
       </div>
       <div class="skill-card reveal reveal-delay-1">
-        <div class="skill-card-title">Backend Concepts</div>
+        <div class="skill-card-title">Testing</div>
         <div class="skill-tags">
-          <span class="skill-tag">MVC / MVT</span>
-          <span class="skill-tag">Middleware</span>
-          <span class="skill-tag">Background Jobs</span>
-          <span class="skill-tag">Authentication</span>
-          <span class="skill-tag">API Integration</span>
+          <span class="skill-tag primary">Pytest</span>
+          <span class="skill-tag">Postman</span>
+          <span class="skill-tag">Payload Validation</span>
         </div>
       </div>
       <div class="skill-card reveal reveal-delay-2">
@@ -814,17 +814,18 @@ footer{
         <div class="skill-tags">
           <span class="skill-tag">Git</span>
           <span class="skill-tag">GitLab</span>
-          <span class="skill-tag">CI/CD</span>
-          <span class="skill-tag">Docker (basic)</span>
+          <span class="skill-tag">Jenkins</span>
+          <span class="skill-tag">Bitbucket Pipelines</span>
+          <span class="skill-tag">Docker</span>
           <span class="skill-tag">Azure</span>
+          <span class="skill-tag">AWS EC2</span>
           <span class="skill-tag">ServiceNow</span>
+          <span class="skill-tag">Axiros AXESS</span>
         </div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-card-title">Libraries</div>
         <div class="skill-tags">
-          <span class="skill-tag">Pandas</span>
-          <span class="skill-tag">Requests</span>
           <span class="skill-tag">pyttsx3</span>
           <span class="skill-tag">SpeechRecognition</span>
         </div>
@@ -833,9 +834,9 @@ footer{
         <div class="skill-card-title">Practices</div>
         <div class="skill-tags">
           <span class="skill-tag">Agile / Scrum</span>
-          <span class="skill-tag">Sprint Planning</span>
+          <span class="skill-tag">Code Review</span>
+          <span class="skill-tag">Test-Driven Development</span>
           <span class="skill-tag">DSA</span>
-          <span class="skill-tag">DBMS</span>
           <span class="skill-tag">Documentation</span>
         </div>
       </div>
@@ -857,15 +858,18 @@ footer{
           <span class="exp-date">Dec 2025 — Present</span>
           <span class="exp-badge">Current</span>
         </div>
-        <div class="exp-title">Python Backend Developer</div>
-        <div class="exp-company">Infosys India Pvt Ltd · Bangalore</div>
-        <div class="exp-stack">Stack: <span>Python · Flask · REST APIs · Postman</span></div>
+        <div class="exp-title">Technology Analyst</div>
+        <div class="exp-company">Infosys India Pvt Ltd · Bengaluru</div>
+        <div class="exp-stack">Stack: <span>Python · Flask · FastAPI · REST APIs · Jenkins · PostgreSQL · Linux</span></div>
         <ul class="exp-bullets">
-          <li>Developing and maintaining <strong>Python-based backend services</strong> and REST APIs powering enterprise-scale monitoring and alerting platforms.</li>
-          <li>Designing API contracts, handling request/response lifecycles, and ensuring <strong>robust error handling</strong> and input validation across endpoints.</li>
-          <li>Writing reusable Python modules and automation scripts to streamline operational workflows and reduce manual intervention.</li>
-          <li>Testing and validating API behaviour using Postman — covering functional, regression, and edge-case scenarios.</li>
-          <li>Collaborating in Agile sprints to ship iterative backend improvements with cross-functional teams.</li>
+          <li>Engineered Python automation scripts for <strong>real-time monitoring, alerting, and operational workflows</strong>, reducing mean time to detect (MTTD) issues by <strong>~40%</strong> across infrastructure systems.</li>
+          <li>Integrated RESTful APIs and backend services to automate infrastructure management.</li>
+          <li>Built a <strong>Python Fabric-based configuration management tool</strong> to orchestrate shell-script execution across <strong>150+ remote hosts and containers</strong>, eliminating repetitive manual SSH operations.</li>
+          <li>Built and maintained <strong>CI/CD pipelines</strong> using Jenkins and Bitbucket Pipelines to automate testing and deployment of backend automation services.</li>
+          <li>Led end-to-end production migration of the load balancer layer from <strong>NGINX to Envoy (v1.37) with WAF integration</strong>, maintaining high availability across <strong>3M+ requests</strong> with zero service downtime.</li>
+          <li>Worked in the networking domain supporting device management and provisioning workflows using the <strong>Axiros AXESS Platform</strong>.</li>
+          <li>Performed systematic API testing, payload validation, and backend workflow verification using Postman and custom Python test suites.</li>
+          <li>Collaborated with cross-functional teams in Agile environments to support production issues, deployment activities, and automation enhancements.</li>
         </ul>
       </div>
 
@@ -874,17 +878,16 @@ footer{
           <span class="exp-date">Oct 2021 — Dec 2025</span>
           <span class="exp-badge">4.2 Years</span>
         </div>
-        <div class="exp-title">Python Backend Developer</div>
-        <div class="exp-company">Accenture India Pvt Ltd · Bangalore</div>
-        <div class="exp-stack">Stack: <span>Python · Flask · Django · REST APIs · MySQL · Postman</span></div>
+        <div class="exp-title">Application Development Analyst</div>
+        <div class="exp-company">Accenture India Pvt Ltd · Bengaluru</div>
+        <div class="exp-stack">Stack: <span>Python · Flask · PowerShell · REST APIs · JavaScript · Postman · ServiceNow · MySQL</span></div>
         <ul class="exp-bullets">
-          <li>Designed and built <strong>10+ production REST APIs</strong> using Flask and Django that collectively resolved <strong>1,200+ incidents per month</strong> and improved SLA adherence significantly.</li>
-          <li>Engineered backend automation pipelines in Python that <strong>cut manual operational effort by 80%</strong>, freeing teams from repetitive data processing.</li>
-          <li>Built a <strong>ServiceNow data extraction service</strong> using Python + REST APIs, automating monthly reporting cycles with reliable scheduling and structured output.</li>
-          <li>Developed backend integrations with email notification services to push <strong>real-time alerts</strong> and incident updates to stakeholders.</li>
-          <li>Implemented backend data models, wrote <strong>optimised SQL queries</strong>, and managed schema changes in MySQL.</li>
-          <li>Led migration of legacy automation workflows with a <strong>zero-downtime cutover strategy</strong> and full audit compliance.</li>
-          <li>Owned end-to-end <strong>API testing with Postman</strong>: authored test collections, validated schemas, and documented endpoints.</li>
+          <li>Developed and maintained <strong>scalable backend services and RESTful APIs</strong> in Python, Flask, and Django supporting <strong>5+ business-critical finance applications</strong> serving 1,000+ internal users.</li>
+          <li>Created an <strong>Admin dashboard</strong> for data visualization and regular maintenance activities using Django.</li>
+          <li>Built Python automation scripts that <strong>eliminated 80% of repetitive manual work</strong>, saving the team an estimated <strong>200+ person-hours per month</strong> and reducing human-error-related incidents by <strong>60%</strong>.</li>
+          <li>Led a <strong>zero-downtime migration</strong> of legacy automation workflows to a modernised platform over a 3-month rollout, maintaining full regulatory compliance and no production disruptions.</li>
+          <li>Automated monthly <strong>ServiceNow data extraction</strong> using Python, ensuring efficient and reliable reporting.</li>
+          <li><strong>Mentored 2 junior developers</strong> in Python best practices and test-driven development.</li>
         </ul>
       </div>
 
@@ -902,6 +905,38 @@ footer{
     <div class="projects-grid">
 
       <div class="project-card reveal">
+        <div class="project-icon">🔗</div>
+        <div class="project-title">URL Shortener</div>
+        <p class="project-desc">A full-stack URL shortener with a FastAPI backend and React frontend. The API runs as a systemd service via Uvicorn on AWS EC2, with NGINX configured as a reverse proxy serving the React app and routing <code>/api/</code> requests to FastAPI. EC2 setup and deployment are automated with Bash scripts.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">FastAPI</span>
+          <span class="project-tag">React</span>
+          <span class="project-tag">NGINX</span>
+          <span class="project-tag">AWS EC2</span>
+          <span class="project-tag">OAuth 2.0</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/sunnyshah7/url_shornerr" target="_blank" class="project-link">View Project →</a>
+          <a href="https://url.sunnycodes.in" target="_blank" class="project-link secondary">Live Demo →</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-icon">🎙️</div>
+        <div class="project-title">Desktop Voice Assistant</div>
+        <p class="project-desc">A voice-activated assistant that automates office tasks — email dispatch, Google Calendar event creation, and app launching — via the Gmail and Calendar APIs with OAuth 2.0. Uses dotenv-based secret management and fail-safe command parsing, achieving a <strong>95%+ command recognition success rate</strong> in end-to-end testing.</p>
+        <div class="project-tags">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">SpeechRecognition</span>
+          <span class="project-tag">Google APIs</span>
+          <span class="project-tag">pyttsx3</span>
+          <span class="project-tag">OAuth2</span>
+        </div>
+        <a href="https://github.com/sunnyshah7/Desktop-Voice-Assistant" target="_blank" class="project-link">View Project →</a>
+      </div>
+
+      <div class="project-card reveal reveal-delay-2">
         <div class="project-icon">🗂️</div>
         <div class="project-title">Employee Management System</div>
         <p class="project-desc">A full-stack CRUD web application built with Django + PostgreSQL. Features a responsive UI with Bootstrap data tables, Django ORM-powered data layer, and secure deployment on Render with CI/CD pipeline.</p>
@@ -913,37 +948,7 @@ footer{
           <span class="project-tag">Render</span>
           <span class="project-tag">CI/CD</span>
         </div>
-        <a href="#" class="https://github.com/sunnyshah7/Employee_management_system">View Project →</a>
-      </div>
-
-      <div class="project-card reveal reveal-delay-1">
-        <div class="project-icon">🎙️</div>
-        <div class="project-title">Desktop Voice Assistant</div>
-        <p class="project-desc">A Python voice assistant that automates office tasks — email dispatch, Google Calendar event creation, and app launching. Integrated Google APIs via OAuth 2.0 with secure dotenv credential management.</p>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">SpeechRecognition</span>
-          <span class="project-tag">Google Calendar API</span>
-          <span class="project-tag">Gmail API</span>
-          <span class="project-tag">OAuth2</span>
-          <span class="project-tag">pyttsx3</span>
-        </div>
-        <a href="#" class="https://github.com/sunnyshah7/Desktop-Voice-Assistant">View Project →</a>
-      </div>
-
-      <div class="project-card reveal reveal-delay-2">
-        <div class="project-icon">⚙️</div>
-        <div class="project-title">Automation API Suite</div>
-        <p class="project-desc">10+ Flask/Django REST APIs built at Accenture to automate incident management workflows in the finance domain — handling 1,200+ incidents/month and eliminating 80% manual effort via smart automation pipelines.</p>
-        <div class="project-tags">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">Flask</span>
-          <span class="project-tag">Django</span>
-          <span class="project-tag">REST API</span>
-          <span class="project-tag">MySQL</span>
-          <span class="project-tag">ServiceNow</span>
-        </div>
-        <a href="#" class="project-link">Details in Resume →</a>
+        <a href="https://github.com/sunnyshah7/Employee_management_system" target="_blank" class="project-link">View Project →</a>
       </div>
 
     </div>
@@ -990,7 +995,8 @@ footer{
               <div class="contact-link-val">See my code</div>
             </div>
           </a>
-          <a href="https://docs.google.com/document/d/1xxQi3uxpi43vKlbjrAZmdBRZ3rCG3EnK/edit?usp=share_link&ouid=113682411564736556502&rtpof=true&sd=true" target="_blank" class="contact-link">
+          <!-- <a href="https://drive.google.com/file/d/1CaSDAxpulrKfEQ8FGfOHEJh402mb1RZ9/view?usp=drive_link" target="_blank" class="contact-link"> -->
+          <a href="/resume/Sunny_Kumar_Shah_Resume.pdf" download="Sunny_Kumar_Shah_Resume.pdf" class="contact-link"></a>  
             <div class="contact-link-icon">📑</div>
             <div class="contact-link-text">
               <div class="contact-link-label">Resume</div>
